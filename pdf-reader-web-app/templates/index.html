@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>PDF Reader Web App</title>
+</head>
+<body>
+    <h1>PDF Reader Web App</h1>
+    <form action="/answer" method="post">
+        <label for="question">Enter your question:</label>
+        <input type="text" id="question" name="question" required>
+        
+        <!-- Add input field for API key -->
+        <label for="api_key">Enter your OpenAI GPT-3 API key:</label>
+        <input type="text" id="api_key" name="api_key" required>
+
+        <button type="submit">Submit</button>
+    </form>
+    {% if answer %}
+        <p>Answer: {{ answer }}</p>
+    {% endif %}
+</body>
+</html>
